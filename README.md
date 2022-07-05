@@ -1,6 +1,8 @@
 # ATACseq-Processor
 
-This script is used to process raw ATAC-seq files ready for analysis. Processed files can be viewed in the [IGV Genome browser](https://software.broadinstitute.org/software/igv/) to visualise chromatin accessibility.
+This script is used to process raw ATAC-seq files ready for analysis. Processed files can be opened in the [IGV Genome browser](https://software.broadinstitute.org/software/igv/) to visualise chromatin accessibility.
+
+
 
 ## Prerequisites
 
@@ -38,10 +40,14 @@ Start `processor.py` by running:
 python3 processor.py
 ```
 
-After running the script, you will have to wait a while as the tasks performed by the script are computationally intensive.
+The first thing the script does is generate a quality control report for all the data in the `ATAC_paired` subdirectory and output it to the `Quality_ATAC` folder. You can view the reports in a web brower. Use [this](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/) guide to interpret the results.
 
-Once the script has finished running, open the `NAME.clipped.sorted.bw` in the [IGV Genome browser](https://software.broadinstitute.org/software/igv/) to view chromatin accessibility:
+Once the script has finished running, open the `NAME.clipped.sorted.bw` file in the [IGV Genome browser](https://software.broadinstitute.org/software/igv/) and load a reference genome to view chromatin accessibility:
 
 ![igv_snapshot_ATAC](https://user-images.githubusercontent.com/33377034/177248346-749c0c7e-9ac9-4dda-b508-0835dcc5959e.png)
 
-You can delete all other files created by the script
+## Notes
+
+- The pipeline used in this script is adapted from [this](https://bioinformaticsworkbook.org/dataAnalysis/ATAC-seq/ATAC_tutorial.html) excellent turotial
+- Running the script is likely to take a long time as the tasks performed are computationally intensive. As such, you should consider active cooling and not rely on battery power
+- Once the script has run and you have saved the `NAME.clipped.sorted.bw` file, you are welcome to delete all of the other files generated as they are no longer needed
