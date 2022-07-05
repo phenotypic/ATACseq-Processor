@@ -1,8 +1,6 @@
 import subprocess
 import pathlib
 
-# https://bioinformaticsworkbook.org/dataAnalysis/ATAC-seq/ATAC_tutorial.html
-
 if not pathlib.Path('ATAC_paired').is_dir():
     print('\nERROR: Please ensure that the ATAC files are in the ATAC_paired subdirectory')
     quit()
