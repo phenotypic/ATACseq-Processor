@@ -4,17 +4,8 @@ import pathlib
 # https://bioinformaticsworkbook.org/dataAnalysis/ATAC-seq/ATAC_tutorial.html
 
 if not pathlib.Path('ATAC_paired').is_dir():
-    print('\nERROR: Please ensure that the ATAC files are in the ATAC_paired folder in this directory')
+    print('\nERROR: Please ensure that the ATAC files are in the ATAC_paired subdirectory')
     quit()
-
-print('\nChecking commands are installed (you must install brew and python3)...')
-subprocess.run(['brew', 'install', 'fastqc', 'bowtie2', 'samtools', 'bioawk', 'bedtools'])
-subprocess.run(['pip3', 'install', 'macs2'])
-subprocess.run(['curl', 'http://hgdownload.cse.ucsc.edu/admin/exe/macOSX.x86_64/bedClip', '--output', 'bedClip'])
-subprocess.run(['curl', 'http://hgdownload.cse.ucsc.edu/admin/exe/macOSX.x86_64/bedGraphToBigWig', '--output', 'bedGraphToBigWig'])
-subprocess.run(['chmod', '+x', 'bedClip'])
-subprocess.run(['chmod', '+x', 'bedGraphToBigWig'])
-print('\nFinished checking/installing requirements...')
 
 print('\nRunning quality control...')
 pathlib.Path('Quality_ATAC').mkdir(parents=True, exist_ok=True)
