@@ -25,8 +25,8 @@ for i in range(1, 4):
     text = input('\nInput name of ATAC input file ' + str(i) + ' (e.g. 30fish-0hpa_S1_L001_R1_00_' + str(i) + '.fastq.gz), or press return to skip: ')
     if not text:
         break
-    bowtieCom.extend(('-' + str(i), 'ATAC_paired/' + text))
-bowtieCom.extend(('-S', 'bwt_out/' + speciesShorthand + '.sam'))
+    bowtieCom.extend(['-' + str(i), 'ATAC_paired/' + text])
+bowtieCom.extend(['-S', 'bwt_out/' + speciesShorthand + '.sam'])
 
 print('\nPerforming alignment using bowtie2...')
 subprocess.run(bowtieCom)
