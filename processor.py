@@ -44,7 +44,7 @@ print('Finished indexing and removing unwanted alignments...')
 
 print('\nStarting PEAK calling...')
 pathlib.Path('peak').mkdir(parents=True, exist_ok=True)
-subprocess.run(['macs2', 'callpeak', '-t', 'bam/' + speciesShorthand + '.sorted.noorg.bam', '-q', '0.05', '--broad', '-f', 'BAMPE', '-n', speciesShorthand, '-B', '--trackline', '--outdir', 'peak', '&>peak/' + speciesShorthand + '.peak.log'])
+subprocess.run(['macs3', 'callpeak', '-t', 'bam/' + speciesShorthand + '.sorted.noorg.bam', '-q', '0.05', '--broad', '-f', 'BAMPE', '-n', speciesShorthand, '-B', '--trackline', '--outdir', 'peak', '&>peak/' + speciesShorthand + '.peak.log'])
 print('Finished indexing and removing unwanted alignments...')
 
 print('\nMaking chromosome sizes file...')
