@@ -11,7 +11,7 @@ You must have `python3` installed. You will need to install any other outstandin
 | Command | Installation |
 | --- | --- |
 | `fastqc`, `bowtie2`, `samtools`, `bioawk`, `bedtools` | Install via [brew](https://brew.sh) by running `brew install fastqc bowtie2 samtools bioawk bedtools` |
-| `macs2` | Install by running `pip3 install macs2` |
+| `macs3` | Install by running `pip3 install macs3` |
 | `bedClip` | Install from the same directory by running `curl http://hgdownload.cse.ucsc.edu/admin/exe/macOSX.x86_64/bedClip --output bedClip && chmod +x bedClip` |
 | `bedGraphToBigWig` | Install from the same directory by running `curl http://hgdownload.cse.ucsc.edu/admin/exe/macOSX.x86_64/bedGraphToBigWig --output bedGraphToBigWig && chmod +x bedGraphToBigWig` |
 
