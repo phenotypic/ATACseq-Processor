@@ -47,6 +47,6 @@ Once the script has finished running, open the `SPECIES.clipped.sorted.bw` file 
 ## Notes
 
 - The pipeline used in this script is adapted from [this](https://bioinformaticsworkbook.org/dataAnalysis/ATAC-seq/ATAC_tutorial.html) excellent turotial
-- The script should automatically detect the reference genome and ATAC-seq files, as long as they are located in the correct directories. The script will also automatically detect the species shorthand name and the number of threads available
+- The script should automatically detect the reference genome and ATAC-seq files, as long as they are located in the correct directories. The script will also automatically detect the species shorthand name and the number of CPU cores available
 - Building the genome index (step 2) is likely to take a long time as the process is computationally intensive
 - Once the script has run and you have saved the `SPECIES.clipped.sorted.bw` file, you are welcome to delete all of the other files generated as they are no longer needed
