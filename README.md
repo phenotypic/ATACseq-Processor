@@ -20,7 +20,7 @@ Download with:
 git clone https://github.com/phenotypic/ATACseq-Processor.git
 ```
 
-Before running, you must ensure that your reference genome and executable files are located in the the same directory as the script, and that your two ATAC-seq files are located in the `ATAC_paired` subdirectory. For example:
+Before running, you must ensure that the reference genome and executable files are located in the the same directory as the script, and that the two ATAC-seq files are located in the `ATAC_paired` subdirectory. See below:
 
 ```
 ATACseq-Processor
