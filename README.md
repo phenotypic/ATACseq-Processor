@@ -6,8 +6,6 @@ This script is used to process raw ATAC-seq files ready for analysis. Processed 
 
 ## Prerequisites
 
-You must have `python3` installed. You will need to install any other outstanding requirements:
-
 | Command | Installation |
 | --- | --- |
 | `fastqc`, `bowtie2`, `samtools`, `bioawk`, `bedtools` | Install via [brew](https://brew.sh) by running `brew install fastqc bowtie2 samtools bioawk bedtools` |
@@ -22,32 +20,33 @@ Download with:
 git clone https://github.com/phenotypic/ATACseq-Processor.git
 ```
 
-Before running, you must ensure that your reference genome is located in the the same directory as the script, and that your raw ATAC-seq files are located in the `ATAC_paired` subdirectory. For example:
+Before running, you must ensure that your reference genome is located in the the same directory as the script, and that your two ATAC-seq files are located in the `ATAC_paired` subdirectory. For example:
 
 ```
 ATACseq-Processor
 │   ├── ATAC_paired
 │   │   ├── 30fish-0hpa_S1_L001_R1_00_1.fastq.gz
-│   │   ├── 30fish-0hpa_S1_L001_R1_00_2.fastq.gz
-│   │   └── 30fish-0hpa_S1_L001_R1_00_3.fastq.gz
+│   │   └── 30fish-0hpa_S1_L001_R1_00_2.fastq.gz
 │   ├── Danio_rerio.GRCz11.dna.toplevel.fa.gz
 │   ├── LICENSE
 │   ├── README.md
-│   └── processor.py
-```
-Start `processor.py` by running:
-```
-python3 processor.py
+│   └── processor.sh
 ```
 
-The first thing the script does is generate a quality control report for all the data in the `ATAC_paired` subdirectory and output it to the `Quality_ATAC` folder. You can view the reports in a web brower. Use [this](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/) guide to interpret the results.
+Start `processor.sh` from the `ATACseq-Processor` directory by running:
+```
+bash processor.sh
+```
 
-Once the script has finished running, open the `NAME.clipped.sorted.bw` file in the [IGV Genome browser](https://software.broadinstitute.org/software/igv/) and load a reference genome to view chromatin accessibility:
+The first thing the script does is generate a quality control report for the two files in the `ATAC_paired` subdirectory and output it to the `Quality_ATAC` folder. You can view the reports in a web brower. Use [this](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/) guide to interpret the results.
+
+Once the script has finished running, open the `SPECIES.clipped.sorted.bw` file in the [IGV Genome browser](https://software.broadinstitute.org/software/igv/) and load a reference genome to view chromatin accessibility:
 
 ![igv_snapshot_ATAC](https://user-images.githubusercontent.com/33377034/177248346-749c0c7e-9ac9-4dda-b508-0835dcc5959e.png)
 
 ## Notes
 
 - The pipeline used in this script is adapted from [this](https://bioinformaticsworkbook.org/dataAnalysis/ATAC-seq/ATAC_tutorial.html) excellent turotial
-- Running the script is likely to take a long time as the tasks performed are computationally intensive. As such, you should consider active cooling and not rely on battery power
-- Once the script has run and you have saved the `NAME.clipped.sorted.bw` file, you are welcome to delete all of the other files generated as they are no longer needed
+- The script should automatically detect the reference genome and ATAC-seq files, as long as they are located in the correct directories. The script will also automatically detect the species shorthand name and the number of threads available
+- Building the genome index (step 2) is likely to take a long time as the process is computationally intensive
+- Once the script has run and you have saved the `SPECIES.clipped.sorted.bw` file, you are welcome to delete all of the other files generated as they are no longer needed
