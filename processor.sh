@@ -3,7 +3,7 @@
 threads="$(sysctl -n hw.logicalcpu)"
 reference="$(find . -name '*toplevel*' | cut -c 3-)"
 species="$(echo ${reference} | awk -F '.' '{print $2}')"
-dirlist=( ATAC_paired/* )
+dirlist=(ATAC_paired/*.fastq.gz)
 
 printf "\nReference genome detected: ${reference}"
 printf "\nSpecies shorhand: ${species}"
